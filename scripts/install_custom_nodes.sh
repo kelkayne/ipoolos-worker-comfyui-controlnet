@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COMFY_DIR="/workspace/ComfyUI"
+COMFY_DIR="/comfyui"
+
 CUSTOM_DIR="${COMFY_DIR}/custom_nodes"
 
 mkdir -p "${CUSTOM_DIR}"
