@@ -142,6 +142,9 @@ RUN if [ "$MODEL_TYPE" = "z-image-turbo" ]; then \
 
 # Stage 3: Final image
 FROM base AS final
+# --- iPoolOS: install ControlNet preprocessors (fix missing CannyEdgePreprocessor) ---
+COPY scripts/install_custom_nodes.sh /scripts/install_custom_nodes.sh
+RUN chmod +x /scripts/install_custom_nodes.sh && /scripts/install_custom_nodes.sh
 
 # Copy models from stage 2 to the final image
 COPY --from=downloader /comfyui/models /comfyui/models
